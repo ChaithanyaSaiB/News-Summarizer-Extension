@@ -1,0 +1,26 @@
+{
+    "name": "News Summarizer",
+    "version": "1.0",
+    "description": "Summarizes Washington Post and Wall Street Journal articles",
+    "manifest_version": 3,
+
+    "permissions": ["activeTab", "scripting", "storage"],
+
+    "options_ui": {
+      "page": "options/options.html",
+      "open_in_tab": false
+    },
+
+    "content_scripts": [
+      {
+        "js": [
+          "scripts/jquery-3.7.0.min.js",
+          "scripts/content.js"
+        ],
+        "matches": [
+          "*://www.washingtonpost.com/*",
+          "*://www.wsj.com/*"
+        ]
+      }
+    ]
+  }

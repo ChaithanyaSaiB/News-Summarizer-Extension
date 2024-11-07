@@ -1,24 +1,45 @@
-// Copyright (c) 2023 Cohere Inc. and its affiliates.
-//
-// Licensed under the MIT License (the "License");
-// you may not use this file except in compliance with the License.
-//
-// You may obtain a copy of the License in the LICENSE file at the top
-// level of this repository.
-
-
-// Saves the API key to chrome.storage
-document.querySelector('form').addEventListener('submit', e => {
-    e.preventDefault();
-    const apiKey = document.querySelector('#apiKey').value;
-    chrome.storage.sync.set({
-        "apiKey": apiKey
-    }, () => {
-        // Update status to let user know options were saved.
-        const status = document.getElementById('status');
-        status.textContent = 'Options saved.';
-        setTimeout(() => {
-            status.textContent = '';
-        }, 750);
-    });
-});
+// Configuration
+const CONFIG = {
+    formSelector: 'form',
+    inputSelector: '#apiKey',
+    statusSelector: '#status',
+    storageKey: 'apiKey',
+    successMessage: 'Options saved.',
+    messageTimeout: 750
+  };
+  
+  // DOM Utility functions
+  const DOM = {
+    getElement: selector => document.querySelector(selector),
+    getValue: selector => DOM.getElement(selector).value,
+    setText: (selector, text) => DOM.getElement(selector).textContent = text
+  };
+  
+  // Storage functions
+  const Storage = {
+    set: (key, value) => new Promise(resolve => chrome.storage.sync.set({ [key]: value }, resolve))
+  };
+  
+  // UI functions
+  const UI = {
+    showStatus: (message, duration) => {
+      DOM.setText(CONFIG.statusSelector, message);
+      setTimeout(() => DOM.setText(CONFIG.statusSelector, ''), duration);
+    }
+  };
+  
+  // Main functionality
+  const saveApiKey = async (event) => {
+    event.preventDefault();
+    const apiKey = DOM.getValue(CONFIG.inputSelector);
+    await Storage.set(CONFIG.storageKey, apiKey);
+    UI.showStatus(CONFIG.successMessage, CONFIG.messageTimeout);
+  };
+  
+  // Event listeners
+  const initializeEventListeners = () => {
+    DOM.getElement(CONFIG.formSelector).addEventListener('submit', saveApiKey);
+  };
+  
+  // Initialize the application
+  initializeEventListeners();

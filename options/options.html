@@ -1,33 +1,109 @@
 <!DOCTYPE html>
-
-<!--
-Copyright (c) 2023 Cohere Inc. and its affiliates.
-
-Licensed under the MIT License (the "License");
-you may not use this file except in compliance with the License.
-
-You may obtain a copy of the License in the LICENSE file at the top
-level of this repository.
--->
-
-
-<!--A simple form to save the user's API key-->
-
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Set API Key</title>
-  </head>
-  <body>
- 	<form>
-      <label>
-        API Key: 
-        <input type="text" id="apiKey">
-      </label>
-      <button type="submit">Save</button>
-    </form>	
-    <div id="status"></div>
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --primary-dark: #45a049;
+            --background-color: #f0f0f0;
+            --text-color: #333;
+            --input-border: #ccc;
+        }
 
-    <!--Load the script containing the save logic-->
-    <script src="options.js"></script>
-  </body>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px; /* Fixed width */
+            max-width: 90%; /* Responsive */
+        }
+
+        h1 {
+            color: var(--text-color);
+            margin-bottom: 1rem; /* Reduced margin for better spacing */
+            font-size: 1.8rem; /* Increased font size for emphasis */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 0.5rem; /* Space between label and input */
+            color: var(--text-color);
+            font-size: 1rem; /* Adjusted font size */
+            text-align: left; /* Left-align labels for better readability */
+        }
+
+        input[type="text"] {
+            padding: 0.75rem; /* Padding for input field */
+            border: 1px solid var(--input-border);
+            border-radius: 6px; /* Rounded corners */
+            font-size: 1rem; /* Font size for input */
+            margin-bottom: 1rem; /* Space below input field */
+            transition: border-color 0.3s; /* Smooth transition for focus effect */
+        }
+
+        input[type="text"]:focus {
+            outline: none; /* Remove default outline */
+            border-color: var(--primary-color); /* Change border color on focus */
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.2); /* Subtle shadow on focus */
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none; /* No border for button */
+            padding: 0.75rem; /* Padding for button */
+            font-size: 1rem; /* Font size for button text */
+            border-radius: 6px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s, transform 0.1s; /* Transition effects */
+        }
+
+        button:hover {
+            background-color: var(--primary-dark); /* Darker shade on hover */
+        }
+
+        button:active {
+            transform: scale(0.98); /* Slightly shrink button on click */
+        }
+
+        #status {
+            margin-top: 1rem; /* Space above status message */
+            font-weight: bold; /* Bold text for emphasis */
+            font-size: 1rem; /* Font size for status message */
+            color: var(--primary-dark); /* Color for status message */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Set Your API Key</h1> <!-- More descriptive heading -->
+        <form id="apiForm">
+            <label for="apiKey">API Key:</label>
+            <input type="text" id="apiKey" required placeholder="Enter your API key here"> <!-- Placeholder added -->
+            <button type="submit">Save Key</button> <!-- Button text clarified -->
+        </form>
+        <div id="status"></div> <!-- Status message area -->
+    </div>
+
+    <script src="options.js"></script> <!-- External JavaScript file -->
+</body>
 </html>
