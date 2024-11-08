@@ -30,6 +30,8 @@ To set up your Cohere AI API key:
 3. Navigate to a news article on The Washington Post and The Wall Street Journal websites
 4. The extension will automatically generate and display a summary underneath the article heading
 
+**Note: Extension sometimes fails to work in these websites too!!**
+
 ## Development
 
 This project uses JavaScript and the Chrome extension API. To modify the extension:
