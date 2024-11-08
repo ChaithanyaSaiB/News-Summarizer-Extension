@@ -37,6 +37,17 @@ This project uses JavaScript and the Chrome extension API. To modify the extensi
 1. Edit the relevant files in the project directory
 2. Reload the extension in `chrome://extensions/`
 
+## Possible Future Updates
+
+1. Multi-Language Support
+2. Customizable Summary Length
+3. Toggling Summary Bar
+4. Audio Summaries
+5. Bias Detection
+6. Fact-Checking Integration
+7. Customizable API Settings
+8. Integration With Note-Taking Apps
+
 ## Acknowledgments
 
 This project is built upon the following resource:
