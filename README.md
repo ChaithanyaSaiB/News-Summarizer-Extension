@@ -15,13 +15,6 @@ This Chrome extension provides concise summaries of news articles using advanced
 3. Enable "Developer mode" in the top right corner
 4. Click "Load unpacked" and select the cloned repository folder
 
-## Usage
-
-1. Click the extension icon in your browser toolbar
-2. Enter your Cohere AI API key in the options page
-3. Navigate to a news article on The Washington Post and The Wall Street Journal websites
-4. The extension will automatically generate and display a summary underneath the article heading
-
 ## Configuration
 
 To set up your Cohere AI API key:
@@ -29,6 +22,13 @@ To set up your Cohere AI API key:
 1. Click the extension icon and select "Options"
 2. Enter your API key in the provided field
 3. Click "Save"
+
+## Usage
+
+1. Click the extension icon in your browser toolbar
+2. Enter your Cohere AI API key in the options page
+3. Navigate to a news article on The Washington Post and The Wall Street Journal websites
+4. The extension will automatically generate and display a summary underneath the article heading
 
 ## Development
 
